@@ -1,6 +1,6 @@
 # Frends.Odf.ReadTextDocument
 
-Extracts readable text from OpenDocument Text (.odt) files.
+Receive an OpenDocument Text (.odt) file and extract all readable text, converting it into string format.
 
 [![ReadTextDocument_build](https://github.com/FrendsPlatform/Frends.Odf/actions/workflows/ReadTextDocument_test_on_main.yml/badge.svg)](https://github.com/FrendsPlatform/Frends.Odf/actions/workflows/ReadTextDocument_test_on_main.yml)
 ![Coverage](https://app-github-custom-badges.azurewebsites.net/Badge?key=FrendsPlatform/Frends.Odf/Frends.Odf.ReadTextDocument|main)

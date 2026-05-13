@@ -1,11 +1,10 @@
-[//]: # (Update this file with actual SystemName and ActionName)
-# Frends.{SystemName}
+# Frends.Odf
 
-Frends tasks for {SystemName} related operations.
+Frends tasks for OpenDocument Format (ODF) related operations.
 
 # Tasks
 
-- [Frends.{SystemName}.{ActionName}](Frends.{SystemName}.{ActionName}/README.md)
+- [Frends.Odf.ReadTextDocument](Frends.Odf.ReadTextDocument/README.md)
 
 # Contributing
 

@@ -12,10 +12,10 @@ public class Result
     public bool Success { get; set; }
 
     /// <summary>
-    /// Input string repeated the specified number of times.
+    /// Single string containing all extracted text from .odt file.
     /// </summary>
-    /// <example>foobar,foobar</example>
-    public string Output { get; set; }
+    /// <example>Extracted example content from ODF text document</example>
+    public string Content { get; set; }
 
     /// <summary>
     /// Error that occurred during task execution.

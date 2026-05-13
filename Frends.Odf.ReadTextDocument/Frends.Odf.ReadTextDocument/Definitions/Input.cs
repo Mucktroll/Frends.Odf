@@ -9,18 +9,10 @@ namespace Frends.Odf.ReadTextDocument.Definitions;
 public class Input
 {
     /// <summary>
-    /// The input string to be repeated and output.
+    /// Full path of the target .odt file to be read.
     /// </summary>
-    /// <example>foobar</example>
-    [DisplayFormat(DataFormatString = "Text")]
-    [DefaultValue("Lorem ipsum dolor sit amet.")]
+    /// <example>c:\temp\foo.odt</example>
+    [DefaultValue("")]
     [Required]
-    public string Content { get; set; } = string.Empty;
-
-    /// <summary>
-    /// Number of times to repeat the input string.
-    /// </summary>
-    /// <example>2</example>
-    [DefaultValue(3)]
-    public int Repeat { get; set; }
+    public string FilePath { get; set; } = string.Empty;
 }
