@@ -177,20 +177,20 @@ internal class FunctionalTests : TestBase
     }
 
     [Test]
-    public void Should_Handle_Odf_Whitespace_And_Tabs()
+    public void Should_Handle_Odf_Elements()
     {
-        // XML framework with ODF tabs and multiple whitespace tags.
+        // XML framework with ODF tabs, multiple whitespace, and line break tags.
         var xml = @"<?xml version=""1.0"" encoding=""UTF-8""?>
             <office:document-content xmlns:office=""urn:oasis:names:tc:opendocument:xmlns:office:1.0"" xmlns:text=""urn:oasis:names:tc:opendocument:xmlns:text:1.0"">
                 <office:body>
                     <office:text>
                         <text:p>Test<text:tab/>Paragraph 1.</text:p>
-                        <text:p>Test<text:s text:c=""4""/>Paragraph 2</text:p>
+                        <text:p>Test<text:s text:c=""4""/> Paragraph<text:line-break/> 2.</text:p>
                     </office:text>
                 </office:body>
             </office:document-content>";
 
-        // Path of the created .odt file injected with the ODF tabs and whitespace tags.
+        // Path of the created .odt file injected with the ODF elements.
         var path = Helpers.TestHelper.CreateTestFile(xml);
 
         try
@@ -198,10 +198,10 @@ internal class FunctionalTests : TestBase
             var input = DefaultInput();
             input.FilePath = path;
 
-            // Extracts the ODF tabs and whitespaces input.
+            // Extracts the ODF elements input.
             var result = Odf.ReadTextDocument(input, DefaultOptions(), CancellationToken.None);
 
-            var expectedOutput = "Test\tParagraph 1." + Environment.NewLine + "Test    Paragraph 2.";
+            var expectedOutput = "Test\tParagraph 1." + Environment.NewLine + "Test     Paragraph" + Environment.NewLine + " 2.";
 
             // Checks that the Task returned successfully and that the extracted content matches the known input.
             Assert.IsTrue(result.Success);

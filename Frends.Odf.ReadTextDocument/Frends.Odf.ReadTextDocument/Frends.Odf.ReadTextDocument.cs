@@ -78,12 +78,12 @@ public static class Odf
              * Combines the ODF namespace with "p" or "h" to create <text:p> or <text:h> which is valid XName property.
              * Filters to get only the XElements that have the paragraphs and headings XName property.
              * Uses Ancestors() to prevent duplicate element value extraction.
-             * Retrieves the text content inside each XElement.
+             * Retrieves the text content inside each XElement using helper method.
             */
             var textElements = xDocument.Descendants()
                 .Where(x => (x.Name == textNamespace + "p" || x.Name == textNamespace + "h")
                          && !x.Ancestors().Any(a => a.Name == textNamespace + "p" || a.Name == textNamespace + "h"))
-                .Select(x => x.Value);
+                .Select(x => Helpers.OdfTextParser.ParseOdfElements(x, textNamespace));
 
             var extractedContent = string.Join(Environment.NewLine, textElements);
 
