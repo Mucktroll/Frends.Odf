@@ -9,12 +9,12 @@ namespace Frends.Odf.ReadSpreadsheet.Definitions;
 public class Options
 {
     /// <summary>
-    /// Delimiter to use between the repeated strings.
+    /// If true, the Task will recognise the first row of the .ods file as headers.
+    /// If false, the Task will treat the first row of the .ods file the same as all other rows.
     /// </summary>
-    /// <example>,</example>
-    [DisplayFormat(DataFormatString = "Text")]
-    [DefaultValue(" ")]
-    public string Delimiter { get; set; }
+    /// <example>true</example>
+    [DefaultValue(true)]
+    public bool ContainsHeaderRow { get; set; } = true;
 
     /// <summary>
     /// Whether to throw an error on failure.

@@ -1,4 +1,6 @@
-﻿namespace Frends.Odf.ReadSpreadsheet.Definitions;
+﻿using Newtonsoft.Json.Linq;
+
+namespace Frends.Odf.ReadSpreadsheet.Definitions;
 
 /// <summary>
 /// Result of the task.
@@ -12,10 +14,10 @@ public class Result
     public bool Success { get; set; }
 
     /// <summary>
-    /// Input string repeated the specified number of times.
+    /// A JSON array containing one object per extracted spreadsheet row.
     /// </summary>
-    /// <example>foobar,foobar</example>
-    public string Output { get; set; }
+    /// <example>[ { "Name": "John" }, { "Name": "Jane" } ]</example>
+    public JToken Data { get; set; }
 
     /// <summary>
     /// Error that occurred during task execution.

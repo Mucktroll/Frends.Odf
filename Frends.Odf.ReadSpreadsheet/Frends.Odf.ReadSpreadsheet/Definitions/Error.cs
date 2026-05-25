@@ -10,13 +10,12 @@ public class Error
     /// <summary>
     /// Summary of the error.
     /// </summary>
-    /// <example>Unable to join strings.</example>
+    /// <example>Input file not found: C:\temp\fake_path.ods</example>
     public string Message { get; set; }
 
     /// <summary>
     /// Additional information about the error.
     /// </summary>
-    /// <example>object { Exception AdditionalInfo }</example>
-    // TODO: Add task specific additional information. Strong typing is recommended when reasonable.
+    /// <example>System.IO.FileNotFoundException</example>
     public Exception AdditionalInfo { get; set; }
 }
