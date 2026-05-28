@@ -1,35 +1,26 @@
+using System;
 using System.Threading;
-using NUnit.Framework;
 using Frends.Odf.ReadSpreadsheet.Definitions;
+using Newtonsoft.Json.Linq;
+using NUnit.Framework;
 
 namespace Frends.Odf.ReadSpreadsheet.Tests;
 
 [TestFixture]
 internal class FunctionalTests : TestBase
 {
+    // Tests the main data extraction functionality using default definition parameters and the test ODF XML framework generated in TestBase.cs.
     [Test]
-    public void ShouldRepeatContentWithDelimiter()
+    public void Should_Extract_File_Data()
     {
-        var input = new Input
-        {
-            Content = "foobar",
-            Repeat = 3,
-        };
+        var result = Odf.ReadSpreadsheet(DefaultInput(), DefaultOptions(), CancellationToken.None);
 
-        var connection = new Connection
-        {
-            ConnectionString = "Host=127.0.0.1;Port=12345",
-        };
+        Assert.IsTrue(result.Success);
 
-        var options = new Options
-        {
-            Delimiter = ", ",
-            ThrowErrorOnFailure = true,
-            ErrorMessageOnFailure = null,
-        };
+        var jsonArray = (JArray)result.Data;
 
-        var result = Odf.ReadSpreadsheet(input, connection, options, CancellationToken.None);
-
-        Assert.That(result.Output, Is.EqualTo("foobar, foobar, foobar"));
+        Assert.AreEqual(1, jsonArray.Count);
+        Assert.AreEqual("Test 3", jsonArray[0]["Test 1"].ToString());
+        Assert.AreEqual("Test 4", jsonArray[0]["Test 2"].ToString());
     }
 }

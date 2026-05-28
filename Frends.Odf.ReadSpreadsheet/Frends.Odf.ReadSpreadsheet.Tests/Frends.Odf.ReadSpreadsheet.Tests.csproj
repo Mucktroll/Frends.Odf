@@ -7,19 +7,19 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Frends.Odf.ReadSpreadsheet\Frends.Odf.ReadSpreadsheet.csproj"/>
+        <ProjectReference Include="..\Frends.Odf.ReadSpreadsheet\Frends.Odf.ReadSpreadsheet.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-        <None Include=".env" CopyToOutputDirectory="PreserveNewest" Condition="Exists('.env')"/>
+        <None Include=".env" CopyToOutputDirectory="PreserveNewest" Condition="Exists('.env')" />
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.556"/>
-        <PackageReference Include="coverlet.collector" Version="6.*"/>
-        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.*"/>
-        <PackageReference Include="NUnit" Version="4.*"/>
-        <PackageReference Include="NUnit3TestAdapter" Version="6.*"/>
-        <PackageReference Include="dotenv.net" Version="4.*"/>
+        <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.556" />
+        <PackageReference Include="coverlet.collector" Version="6.*" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.*" />
+        <PackageReference Include="NUnit" Version="4.*" />
+        <PackageReference Include="NUnit3TestAdapter" Version="6.*" />
+        <PackageReference Include="dotenv.net" Version="4.*" />
     </ItemGroup>
 </Project>
