@@ -29,12 +29,12 @@ internal abstract class TestBase
                     <office:spreadsheet>
                         <table:table table:name=""Sheet1"">
                             <table:table-row>
-                                <table:table-cell><text:p>Test 1</text:p></table:table-cell>
-                                <table:table-cell><text:p>Test 2</text:p></table:table-cell>
+                                <table:table-cell><text:p>Key Test 1</text:p></table:table-cell>
+                                <table:table-cell><text:p>Key Test 2</text:p></table:table-cell>
                             </table:table-row>
                             <table:table-row>
-                                <table:table-cell><text:p>Test 3</text:p></table:table-cell>
-                                <table:table-cell><text:p>Test 4</text:p></table:table-cell>
+                                <table:table-cell><text:p>Value Test 1</text:p></table:table-cell>
+                                <table:table-cell><text:p>Value Test 2</text:p></table:table-cell>
                             </table:table-row>
                         </table:table>
                     </office:spreadsheet>
