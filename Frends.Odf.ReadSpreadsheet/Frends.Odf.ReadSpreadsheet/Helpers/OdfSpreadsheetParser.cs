@@ -10,7 +10,7 @@ namespace Frends.Odf.ReadSpreadsheet.Helpers
 {
     internal class OdfSpreadsheetParser
     {
-        private const int MaxColumns = 16384; // Maximum columns of Excel spreadsheet
+        private const int MaxColumns = 16384; // Maximum columns of Excel spreadsheet.
         private const int MaxRows = 5000; // Cap to row limit to prevent malicous file sizes.
         private const string DefaultColumnPrefix = "Column";
 
