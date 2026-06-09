@@ -37,4 +37,8 @@
 		<Content Include="FrendsTaskMetadata.json" Pack="true" PackagePath="/" CopyToOutputDirectory="PreserveNewest" />
 		<AdditionalFiles Include="FrendsTaskMetadata.json" />
     </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Resources\" />
+    </ItemGroup>
 </Project>
