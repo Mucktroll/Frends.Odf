@@ -36,7 +36,8 @@
         <Content Include="../CHANGELOG.md" PackagePath="/" Pack="true" />
 		<Content Include="FrendsTaskMetadata.json" Pack="true" PackagePath="/" CopyToOutputDirectory="PreserveNewest" />
 		<AdditionalFiles Include="FrendsTaskMetadata.json" />
-    </ItemGroup>
+		<EmbeddedResource Include="Resources\template.ods" />
+	</ItemGroup>
 
     <ItemGroup>
       <Folder Include="Resources\" />
