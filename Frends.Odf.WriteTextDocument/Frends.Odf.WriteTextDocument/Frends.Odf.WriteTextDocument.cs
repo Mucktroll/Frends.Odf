@@ -135,8 +135,7 @@ public static class Odf
 
             memoryStream.Position = 0;
 
-            // Write to a temporary file first to ensure file is completely written.
-            var tempFilePath = normalizedPath + ".tmp";
+            var tempFilePath = Path.Combine(directory, $"{Path.GetFileName(normalizedPath)}.{Guid.NewGuid():N}.tmp");
 
             try
             {
@@ -145,7 +144,16 @@ public static class Odf
                     memoryStream.CopyTo(fileStream);
                 }
 
-                File.Move(tempFilePath, normalizedPath, true);
+                var overwrite = input.ActionOnExistingFile != ActionOnExistingFile.Throw;
+
+                try
+                {
+                    File.Move(tempFilePath, normalizedPath, overwrite);
+                }
+                catch (IOException ex) when (!overwrite)
+                {
+                    throw new IOException($"File already exists: {normalizedPath}", ex);
+                }
             }
             catch
             {
