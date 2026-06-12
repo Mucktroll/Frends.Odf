@@ -27,7 +27,7 @@ public static class Odf
     /// <param name="input">Essential parameters.</param>
     /// <param name="options">Additional parameters.</param>
     /// <param name="cancellationToken">A cancellation token provided by Frends Platform.</param>
-    /// <returns>object { bool Success, JToken Data, object Error { string Message, Exception AdditionalInfo } }</returns>
+    /// <returns>object { bool Success, dynamic Data, object Error { string Message, Exception AdditionalInfo } }</returns>
     public static Result ReadSpreadsheet(
         [PropertyTab] Input input,
         [PropertyTab] Options options,

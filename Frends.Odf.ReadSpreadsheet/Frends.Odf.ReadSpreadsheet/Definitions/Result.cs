@@ -17,7 +17,7 @@ public class Result
     /// A JSON array containing one object per extracted spreadsheet row.
     /// </summary>
     /// <example>[ { "Name": "John" }, { "Name": "Jane" } ]</example>
-    public JToken Data { get; set; }
+    public dynamic Data { get; set; }
 
     /// <summary>
     /// Error that occurred during task execution.

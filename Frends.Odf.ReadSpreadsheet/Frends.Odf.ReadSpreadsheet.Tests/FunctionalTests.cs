@@ -1,7 +1,6 @@
 using System;
 using System.Threading;
 using Frends.Odf.ReadSpreadsheet.Tests.Helpers;
-using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 
 namespace Frends.Odf.ReadSpreadsheet.Tests;
@@ -16,7 +15,7 @@ internal class FunctionalTests : TestBase
 
         Assert.That(result.Success, Is.True);
 
-        var jsonArray = (JArray)result.Data;
+        var jsonArray = result.Data;
 
         Assert.That(jsonArray.Count, Is.EqualTo(1));
         Assert.That(jsonArray[0]["Key Test 1"]?.ToString(), Is.EqualTo("Value Test 1"));
@@ -33,7 +32,7 @@ internal class FunctionalTests : TestBase
 
         Assert.That(result.Success, Is.True);
 
-        var jsonArray = (JArray)result.Data;
+        var jsonArray = result.Data;
 
         Assert.That(jsonArray.Count, Is.EqualTo(1));
         Assert.That(jsonArray[0]["Key Test 1"]?.ToString(), Is.EqualTo("Value Test 1"));
@@ -50,7 +49,7 @@ internal class FunctionalTests : TestBase
 
         Assert.That(result.Success, Is.True);
 
-        var jsonArray = (JArray)result.Data;
+        var jsonArray = result.Data;
 
         Assert.That(jsonArray.Count, Is.EqualTo(2));
         Assert.That(jsonArray[0]["Column_1"]?.ToString(), Is.EqualTo("Key Test 1"));
@@ -96,7 +95,7 @@ internal class FunctionalTests : TestBase
 
         Assert.That(result.Success, Is.True);
 
-        var jsonArray = (JArray)result.Data;
+        var jsonArray = result.Data;
         Assert.That(jsonArray.Count, Is.EqualTo(0));
     }
 
@@ -148,7 +147,7 @@ internal class FunctionalTests : TestBase
         var result = Odf.ReadSpreadsheet(input, options, CancellationToken.None);
         Assert.That(result.Success, Is.True);
 
-        var jsonArray = (JArray)result.Data;
+        var jsonArray = result.Data;
         var firstRow = jsonArray[0];
 
         Assert.That(firstRow["Column_1"]?.ToString(), Is.EqualTo("Value Test 1"));
@@ -189,7 +188,7 @@ internal class FunctionalTests : TestBase
         var result = Odf.ReadSpreadsheet(input, DefaultOptions(), CancellationToken.None);
         Assert.That(result.Success, Is.True);
 
-        var jsonArray = (JArray)result.Data;
+        var jsonArray = result.Data;
         var dataRow = jsonArray[0];
 
         Assert.That(dataRow["Key Test"]?.ToString(), Is.EqualTo("Value Test"));
@@ -226,7 +225,7 @@ internal class FunctionalTests : TestBase
 
         Assert.That(result.Success, Is.True);
 
-        var jsonArray = (JArray)result.Data;
+        var jsonArray = result.Data;
 
         Assert.That(jsonArray[0]["AäÄaOöÖo"]?.ToString(), Is.EqualTo("ÖöÄä"));
     }
@@ -289,7 +288,7 @@ internal class FunctionalTests : TestBase
 
         Assert.That(result.Success, Is.True);
 
-        var jsonArray = (JArray)result.Data;
+        var jsonArray = result.Data;
 
         Assert.That(jsonArray[0]["Key Test 1"]?.ToString(), Is.EqualTo("Value\tTest 1."));
         Assert.That(jsonArray[0]["Key Test 2"]?.ToString(), Is.EqualTo("Value     Test" + Environment.NewLine + " 2."));
