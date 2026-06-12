@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json.Linq;
-
-namespace Frends.Odf.ReadSpreadsheet.Definitions;
+﻿namespace Frends.Odf.ReadSpreadsheet.Definitions;
 
 /// <summary>
 /// Result of the task.
